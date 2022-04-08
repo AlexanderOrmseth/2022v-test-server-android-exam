@@ -35,8 +35,6 @@ const upload = multer({
   },
 });
 
-// welcome message
-
 // upload single file (jpg/jpeg)
 app.post(
   "/api/upload",
