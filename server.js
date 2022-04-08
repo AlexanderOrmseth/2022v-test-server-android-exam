@@ -23,15 +23,9 @@ var storage = multer.diskStorage({
 
 const upload = multer({
   storage,
+  preservePath: false,
   limits: {
     fileSize: 1000000, // 1 MB limit
-  },
-  fileFilter(req, file, cb) {
-    if (!file.originalname.match(/\.(jpg|jpeg)$/)) {
-      // upload only jpg and jpeg format
-      return cb(new Error("Please upload a Image of type jpg/jpeg"));
-    }
-    cb(undefined, true);
   },
 });
 
@@ -39,7 +33,8 @@ const upload = multer({
 app.post(
   "/api/upload",
   upload.single("image"),
-  (req, res) => {
+  (req, res, next) => {
+    if (!req.file) return next(new Error("Missing mandatory file"));
     console.log(req.file);
     res
       .status(200)
