@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Server</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        line-height: 1.2;
+      }
+      main {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      h1,
+      h2 {
+        text-align: center;
+        margin: 0.8rem 0;
+      }
+      .endpoints {
+        border: 1px solid black;
+      }
+      .endpoints > h2 {
+        border-bottom: 1px solid black;
+      }
+      .endpoints > div {
+        padding: 1.4rem;
+      }
+      .endpoints > div + div {
+        border-top: 1px solid black;
+      }
+      .endpoints > div > p {
+        color: rgb(55, 65, 156);
+        padding: 0.4rem;
+        background-color: rgb(243, 243, 243);
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Test Server</h1>
+      <p>
+        Accepts .jpg/.jpeg (under 1MB) and returns a url (string) to filepath
+      </p>
+      <div class="endpoints">
+        <div>
+          <p>http://localhost:5001/api/upload</p>
+        </div>
+        <div>
+          <div>
+            Use this for Android Studio testing (instead of localhost..)
+          </div>
+          <p>http://10.0.2.2:5001/api/upload</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
