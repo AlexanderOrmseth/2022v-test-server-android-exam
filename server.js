@@ -4,6 +4,8 @@ const multer = require("multer");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+const data = require("./data.json");
+
 const PORT = 5001;
 
 /* 
@@ -42,9 +44,14 @@ app.post(
   },
   (error, req, res) => {
     console.error(error.message);
-    res.status(400).send({ error: error.message });
+    res.send({ error: error.message });
   }
 );
+
+app.get("/api/google", (req, res) => {
+  console.log(data);
+  res.json(data);
+});
 
 // show index.html
 app.use(express.static(__dirname + "/public"));
