@@ -31,11 +31,14 @@ const upload = multer({
   },
 });
 
+const sleep = () => new Promise((resolve) => setTimeout(resolve, 600));
+
 // upload single file (jpg/jpeg)
 app.post(
   "/api/upload",
   upload.single("image"),
-  (req, res, next) => {
+  async (req, res, next) => {
+    await sleep();
     if (!req.file) return next(new Error("Missing mandatory file"));
     console.log(req.file);
     res
@@ -48,7 +51,8 @@ app.post(
   }
 );
 
-app.get("/api/google", (req, res) => {
+app.get("/api/google", async (req, res) => {
+  await sleep();
   console.log(data);
   console.log("query url: " + req.query.url);
   res.json(data);
