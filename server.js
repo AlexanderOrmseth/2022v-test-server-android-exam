@@ -27,7 +27,7 @@ const upload = multer({
   storage,
   preservePath: false,
   limits: {
-    fileSize: 1000000, // 1 MB limit
+    fileSize: 8000000, // 8 MB limit
   },
 });
 
