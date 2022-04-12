@@ -50,6 +50,7 @@ app.post(
 
 app.get("/api/google", (req, res) => {
   console.log(data);
+  console.log("query url: " + req.query.url);
   res.json(data);
 });
 
